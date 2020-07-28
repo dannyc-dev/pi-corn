@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'; 
+import StreamPreview from "../core/stream-preview/StreamPreview"; 
 
 function Home(props) {
     return (
         <React.Fragment>
             <div>Title</div>
-            <img alt="Camera Stream" src={ props.objUI.config.mjpeg_endpoint }/>
+            <StreamPreview objUI= { props.objUI }/>
         </React.Fragment>
     )
 }
