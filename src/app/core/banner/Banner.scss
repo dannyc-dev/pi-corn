@@ -1,0 +1,23 @@
+.page-header {
+    position: fixed;
+    width: 100%;
+    background-color: #133656;
+    height: 80px;
+    line-height: 90px;
+    color: rgb(255, 255, 255);
+    vertical-align: bottom;
+    font-weight: 200;
+    font-size: 22px;
+    z-index: 1;
+    text-align: center;
+}
+
+@media only screen and (max-width: 429px) {
+    .header-title {
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        max-width: 80%;
+        text-overflow: ellipsis;
+    }
+}

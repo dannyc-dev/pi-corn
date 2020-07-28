@@ -1,4 +1,5 @@
 import React from 'react'; 
+import "./StreamPreview.scss";
 
 function StreamPreview(props) {
     return (
