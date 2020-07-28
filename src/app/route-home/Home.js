@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'; 
 
-const Home = (props) => {
+function Home(props) {
     return (
         <React.Fragment>
             <div>Title</div>
-            <img src={ props.objUI.config.mjpeg_endpoint }/>
+            <img alt="Camera Stream" src={ props.objUI.config.mjpeg_endpoint }/>
         </React.Fragment>
     )
 }
