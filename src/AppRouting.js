@@ -1,19 +1,16 @@
 import React from 'react';
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 //To DO import home and define a home component to display the webcam
+import Home from "./app/route-home/Home";
 
-function AppRouting() {
+function AppRouting(props) {
     return (
-        <Route render={({location}) => {
-            return (
-                <Switch location={location}>
-                    <Route exact path="/" render={props => (
-                        <Redirect to={{ pathname: '/home', search: props.location.search }} />
-                    )}/>
-                    <Route exact path="/home" component={Home} />
-                </Switch>
-            )
-        }}/>
+        <React.Fragment>  
+            <Route exact path="/">
+                <Redirect to="/home" />
+            </Route>
+            <Route exact path="/home" render={ () => <Home {...props} objUI={props.objUI}/> }/>
+        </React.Fragment> 
     )
 }
 
