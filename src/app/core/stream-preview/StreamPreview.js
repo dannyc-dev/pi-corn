@@ -3,7 +3,7 @@ import "./StreamPreview.scss";
 
 function StreamPreview(props) {
     return (
-        <img alt="Camera Stream" src={ props.objUI.config.mjpeg_endpoint }/>
+        <img alt="Camera Stream" src={props.streamSource}/>
     )
 }
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import './App.scss';
 import { AppRouter } from "./AppRouting";
 import { BrowserRouter as Router } from "react-router-dom";
-import setEnvrionments from './environments';
+import setEnvironments from './environments';
 
 function App() {
   let objUI = {};
-  objUI["config"] = setEnvrionments();
+  objUI["config"] = setEnvironments();
 
   return (
     <Router>
