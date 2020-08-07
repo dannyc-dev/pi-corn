@@ -16,7 +16,7 @@ function Banner(props) {
                 <span className="connect-device-link" onClick={(e) => {setConnectDeviceShow(true)}}>Connect a Device</span>
                 <ConnectDeviceModal show={connectDeviceModalShow} onHide={(e) => {setConnectDeviceShow(false)}}/>
                 <span className="register-link" onClick={(e) => {setRegisterDeviceShow(true)}}>Register</span>
-                <RegisterDeviceModal show={registerDeviceModalShow} onHide={(e) => {setRegisterDeviceShow(false)}}/>
+                <RegisterDeviceModal show={registerDeviceModalShow} objui={props.objui} onHide={(e) => {setRegisterDeviceShow(false)}}/>
             </div>
         </div>
     )

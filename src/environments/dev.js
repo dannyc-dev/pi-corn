@@ -1,5 +1,5 @@
 export const devConfig = {
-    mjpeg_endpoints: [
-        'http://192.168.1.244:8081'
-    ]
+    api_endpoint_register: '/register',
+    api_endpoint_getDevices: '/devices',
+    api_endpoint_delete: '/delete'
 }

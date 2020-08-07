@@ -20,10 +20,23 @@ function RegisterDeviceModal(props) {
           });
     }
 
-    const registerNewDevice = (e) => {
+    const registerNewDevice = async (e) => {
         e.preventDefault()
-        console.log(formData);
-        //To Do API call to connect to device 
+    
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        };
+        const response = await fetch(`${props.objui.config.api_endpoint_register}`, requestOptions);
+        if (!response.ok) {
+            //catch error 
+            console.log(response);
+        } else {
+            const response_json = await response.json();
+            //TODO Do something with response_json / return meaningful data
+            props.objui.update_registered_devices();
+        }
         props.onHide();
     }
     return (

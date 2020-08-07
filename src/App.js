@@ -4,8 +4,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import setEnvironments from './environments';
 
 function App() {
-  let objUI = {};
+  //TODO import from seperate interface file
+  let objUI = {
+    "registered_devices": []
+  };
   objUI["config"] = setEnvironments();
+
 
   return (
     <Router>

@@ -18,7 +18,12 @@
     }
 
     .link-container {
+        display: inline-block;
         float: right;
+        display: inline-block;
+        position: fixed;
+        top: 0;
+        right: 0;
     }
 
     span {

@@ -9,7 +9,7 @@ function AppRouting(props) {
             <Route exact path="/">
                 <Redirect to="/home" />
             </Route>
-            <Route exact path="/home" render={ () => <Home {...props} objUI={props.objUI}/> }/>
+            <Route exact path="/home" render={ () => <Home {...props} objui={props.objUI}/> }/>
             <Route component={NotFound}/>
         </Switch> 
     )
