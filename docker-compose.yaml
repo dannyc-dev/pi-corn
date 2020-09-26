@@ -1,0 +1,36 @@
+version: '3.7'
+
+networks:
+  picorn-network:
+    driver: bridge
+
+services:
+  picorn_redis:
+    image: redis:latest
+    links:
+      - redis
+    command: redis-cli -h redis
+    networks:
+      - picorn-network
+  api:
+    build: ./picornAPI
+    networks:
+      - picorn-network
+    ports:
+      - '8080:8080'
+    stdin_open: true
+    depends_on: 
+      - picorn_redis
+  ui:
+    build: ./picornUI
+    ports:
+      - '3000:3000'
+    networks:
+      - picorn-network
+    stdin_open: true
+    links: 
+      - api
+    depends_on:
+      - api
+
+
