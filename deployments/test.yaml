@@ -16,5 +16,3 @@ spec:
         - name: hello-world
           image: localhost:32000/hello-world
           imagePullPolicy: Always
-          ports:
-            - containerPort: 80
