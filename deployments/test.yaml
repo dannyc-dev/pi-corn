@@ -1,18 +1,35 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: hello-world-2
+  name: hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-2
+      app: hello-world
   template:
     metadata:
       labels:
-        app: hello-world-2
+        app: hello-world
     spec:
       containers:
-        - name: hello-world-2
-          image: localhost:32000/hello-world-2
+        - name: hello-world
+          image: localhost:32000/hello-world-arm
           imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      nodePort: 31000
+  selector:
+    app: hello-world
