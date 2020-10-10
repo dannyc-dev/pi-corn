@@ -29,6 +29,6 @@ spec:
     - port: 6379
       targetPort: 6379
       protocol: TCP
-      nodePort: 36379
+      nodePort: 31379
   selector:
     app: pihub-redis
