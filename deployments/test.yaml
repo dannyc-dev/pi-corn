@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: 192.168.1.100:32000/hello-world-arm-v9
+          image: localhost:32000/hello-world-arm-v9
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
