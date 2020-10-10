@@ -1,0 +1,34 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pihub-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihub-redis
+  template:
+    metadata:
+      labels:
+        app: pihub-redis
+    spec:
+      containers:
+        - name: pihub-redis
+          image: redis
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 6379
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pihub-redis
+spec:
+  type: NodePort
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+      nodePort: 306379
+  selector:
+    app: pihub-redis
