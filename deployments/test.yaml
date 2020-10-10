@@ -18,7 +18,6 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
-      restartPolicy: Never
 ---
 kind: Service
 apiVersion: v1
