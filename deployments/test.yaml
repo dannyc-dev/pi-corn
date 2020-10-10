@@ -1,34 +1,34 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: hello-world
+  name: pihub-ui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: pihub-ui
   template:
     metadata:
       labels:
-        app: hello-world
+        app: pihub-ui
     spec:
       containers:
-        - name: hello-world
-          image: 192.168.1.100:32000/hello-world-arm-v9
+        - name: pihub-ui
+          image: 192.168.1.100:32000/ui-picorn
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 80
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello-world
+  name: pihub-ui
 spec:
   type: NodePort
   ports:
-    - port: 8000
-      targetPort: 8000
+    - port: 80
+      targetPort: 80
       protocol: TCP
       nodePort: 31000
   selector:
-    app: hello-world
+    app: pihub-ui
