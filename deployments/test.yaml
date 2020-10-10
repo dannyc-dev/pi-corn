@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: localhost:32000/hello-world-arm
+          image: localhost:32000/hello-world-arm-v9
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 8000
       restartPolicy: Always
 ---
 kind: Service
@@ -27,8 +27,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8000
+      targetPort: 8000
       protocol: TCP
       nodePort: 31000
   selector:
