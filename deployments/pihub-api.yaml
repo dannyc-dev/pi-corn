@@ -1,0 +1,34 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pihub-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pihub-api
+  template:
+    metadata:
+      labels:
+        app: pihub-api
+    spec:
+      containers:
+        - name: pihub-api
+          image: 192.168.1.100:32000/api-picorn
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pihub-api
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      nodePort: 30080
+  selector:
+    app: pihub-api
