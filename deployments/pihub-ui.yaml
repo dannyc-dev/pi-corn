@@ -35,3 +35,4 @@ spec:
       nodePort: 31000
   selector:
     app: pihub-ui
+    
